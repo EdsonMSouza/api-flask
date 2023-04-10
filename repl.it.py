@@ -12,9 +12,11 @@ def homepage():
   retorno += '<em>/somar/v1/v2</em> - Retorna a soma entre dois valores v1 e v2</br>'
   retorno += '<em>/multiplicar/v1/v2</em> - Retorna a multiplicação entre dois valores v1 e v2</br>'
   retorno += '<em>/previa</em> - Retorna os cinco primeiros registros de um <em>dataset</em> sobre vendas</br>' 
+  retorno += '<em>/totalvendas</em> - Retorna o total das vendas de um <em>dataset</em> sobre vendas</br>'
   return retorno
   
-# Construindo duas funcionalidades de calculadora (somar e multiplicar)
+## Construindo duas funcionalidades de calculadora (somar e multiplicar)
+
 # Somar
 @app.route('/somar/<string:v1>/<string:v2>')
 def somar(v1, v2):
@@ -31,16 +33,16 @@ def multiplicar(v1, v2):
 # Listando os cinco primeiros registros da tabela
 @app.route('/previa') 
 def previa():
-  dados = pd.read_csv('https://github.com/EdsonMSouza/api-flask/vendas.csv')
-  resposta = dados.to_dict(orient="list")
+  dados = pd.read_csv('https://www.edsonmelo.com.br/src/dados/vendas.csv')
+  resposta = dados.head(5).to_dict(orient="list")
   return jsonify(resposta)
   
 # Acessando dados de um dataset (Pandas)
 # Mostrando o Total de Vendas do Dataset
 @app.route('/totalvendas')
 def vendas():
-  dados = pd.read_csv('https://github.com/EdsonMSouza/api-flask/vendas.csv')
-  resposta = {'total_vendas':dados.VENDAS.sum()}
+  dados = pd.read_csv('https://www.edsonmelo.com.br/src/dados/vendas.csv')
+  resposta = {'total_vendas':dados.Vendas.sum()}
   return jsonify(resposta)
   
 # executando a aplicação de modo aberto (web)
