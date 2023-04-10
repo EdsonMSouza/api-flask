@@ -8,10 +8,10 @@ Este projeto tem como objetivo apresentar o desenvolvimento de uma API simples q
 
 ```abnt
 DE SOUZA, Edson Melo (2023, April 9). API FLASK.
-Available in: https://github.com/EdsonMSouza/api-flask
+Disponível em: https://github.com/EdsonMSouza/api-flask
 ```
 
-Ou BibTeX for LaTeX:
+Ou BibTeX para LaTeX:
 
 ```latex
 @misc{desouza2023apiflask,
